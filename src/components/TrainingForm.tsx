@@ -79,7 +79,6 @@ const TrainingForm: React.FC<Props> = ({ training, onSuccess, onCancel }) => {
 
     const payload = TrainingFactory.create(base) as ITrainingBase;
 
-    // Apply specific fields based on type
     switch (type) {
       case "personal":
         (payload as IPersonalTraining).trainerName = trainerName;
@@ -94,12 +93,6 @@ const TrainingForm: React.FC<Props> = ({ training, onSuccess, onCancel }) => {
         (payload as IMembership).durationMonths = durationMonths;
         break;
     }
-
-    // if (isEdit) {
-    //   await TrainingService.updateTraining(payload);
-    // } else {
-    //   await TrainingService.addTraining(payload);
-    // }
 
     onSuccess(payload, isEdit);
   };

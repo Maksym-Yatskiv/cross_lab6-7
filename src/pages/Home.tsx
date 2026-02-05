@@ -44,19 +44,19 @@ const Home: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
-    setTrainings(prev => prev.filter(t => t.id !== id));
+    TrainingService.deleteTraining(id);
+    setTrainings(TrainingService.getTrainings());
   };
 
   const handleSuccess = (savedTraining: ITrainingBase, isEdit: boolean) => {
     setOpen(false);
 
     if (isEdit) {
-      setTrainings(prev =>
-        prev.map(t => (t.id === savedTraining.id ? savedTraining : t))
-      );
+      TrainingService.updateTraining(savedTraining);
     } else {
-      setTrainings(prev => [...prev, savedTraining]);
+      TrainingService.addTraining(savedTraining);
     }
+    setTrainings(TrainingService.getTrainings());
   };
 
   return (
