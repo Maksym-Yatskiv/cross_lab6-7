@@ -1,6 +1,8 @@
 import { IMembership } from "../interfaces/ITraining";
 
 export class Membership implements IMembership {
+  public readonly type = "membership" as const;
+
   constructor(
     public id: string,
     public title: string,

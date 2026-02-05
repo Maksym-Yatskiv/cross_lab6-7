@@ -1,6 +1,8 @@
 import { IPersonalTraining } from "../interfaces/ITraining";
 
 export class PersonalTraining implements IPersonalTraining {
+    public readonly type = "personal" as const;
+
     constructor(
         public id: string,
         public title: string,

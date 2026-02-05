@@ -1,6 +1,8 @@
-import { IGroupTraining } from "../interfaces/ITraining";
+import { IOnlineTraining } from "../interfaces/ITraining";
 
-export class GroupTraining implements IGroupTraining {
+export class OnlineTraining implements IOnlineTraining {
+    public readonly type = "online" as const;
+
     constructor(
         public id: string,
         public title: string,
@@ -8,10 +10,10 @@ export class GroupTraining implements IGroupTraining {
         public durationMinutes: number,
         public level: "beginner" | "intermediate" | "advanced",
         public schedule: string,
-        public groupSize: number
+        public platform: string
     ) {}
 
     getDescription(): string {
-        return `Групове заняття (до ${this.groupSize} осіб)`;
+        return `Онлайн-тренування через ${this.platform}`;
     }
 }

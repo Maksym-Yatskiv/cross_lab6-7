@@ -1,5 +1,6 @@
 export interface ITrainingBase {
     id: string;
+    type: "personal" | "group" | "online" | "membership"
     title: string;
     price: number;
     durationMinutes: number;
